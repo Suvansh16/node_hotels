@@ -1,6 +1,7 @@
 const express=require("express");
 const app=express();
 const db=require("./db");
+require("dotenv").config();
 
 
 
@@ -14,7 +15,7 @@ app.get("/",(req,res)=>{
 })
 
 
-
+const PORT=process.env.PORT || 3000;
 
 //import the router file
 const personRoutes=require("./routes/personRoutes");
@@ -26,6 +27,8 @@ const menuRoutes=require("./routes/menuItemRoutes");
 //use menu routes
 app.use("/menuitem",menuRoutes);
 
-app.listen(3000,()=>{
+
+
+app.listen(PORT,()=>{
     console.log("listening on port 3000");
 })
