@@ -4,15 +4,7 @@ require("dotenv").config();
 //define the mongodb connection url
 // const mongoURL="MONGODB_URL_LOCAL";
 const mongoURL=process.env.MONGODB_URL;
-mongoose.connect(mongoURL,{
-    tls: true,
-  tlsAllowInvalidCertificates: true,  // Allow invalid certificates
-  tlsInsecure: true  // (Optional) Disable strict TLS checks
-}).then(() => {
-  console.log("Connected to MongoDB");
-}).catch((err) => {
-  console.error("MongoDB connection error:", err);
-});
+mongoose.connect(mongoURL);
 //get the default connection
 //mongoose maintains a default connection object representing the mongoDB connection
 const db=mongoose.connection;
