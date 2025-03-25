@@ -6,8 +6,13 @@ require("dotenv").config();
 const mongoURL=process.env.MONGODB_URL;
 mongoose.connect(mongoURL,{
     tls: true,
-    tlsAllowInvalidCertificates: true,
-} );
+  tlsAllowInvalidCertificates: true,  // Allow invalid certificates
+  tlsInsecure: true  // (Optional) Disable strict TLS checks
+}).then(() => {
+  console.log("Connected to MongoDB");
+}).catch((err) => {
+  console.error("MongoDB connection error:", err);
+});
 //get the default connection
 //mongoose maintains a default connection object representing the mongoDB connection
 const db=mongoose.connection;
