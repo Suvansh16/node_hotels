@@ -2,8 +2,14 @@
 const mongoose=require("mongoose");
 require("dotenv").config();
 //define the mongodb connection url
-// const mongoURL="MONGODB_URL_LOCAL";
-const mongoURL=process.env.MONGODB_URL;
+
+//local url
+const mongoURL=process.env.MONGODB_URL_LOCAL;
+
+//atlas url
+// const mongoURL=process.env.MONGODB_URL;
+
+
 mongoose.connect(mongoURL);
 //get the default connection
 //mongoose maintains a default connection object representing the mongoDB connection
